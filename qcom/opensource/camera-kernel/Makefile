@@ -3,6 +3,8 @@
 KBUILD_OPTIONS += CAMERA_KERNEL_ROOT=$(shell pwd)
 KBUILD_OPTIONS += KERNEL_ROOT=$(ROOT_DIR)/$(KERNEL_DIR)
 KBUILD_OPTIONS += MODNAME=camera
+KBUILD_OPTIONS += BOARD_PLATFORM=kalama
+KBUILD_OPTIONS += KBUILD_EXTRA_SYMBOLS=$(KERNEL_ROOT)/../sm8550-modules/qcom/opensource/mmrm-driver/Module.symvers
 
 all: modules
 
