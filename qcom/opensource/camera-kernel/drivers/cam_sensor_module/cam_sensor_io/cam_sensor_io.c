@@ -17,10 +17,10 @@
 #if defined(CONFIG_CAMERA_CDR_TEST)
 #include "cam_clock_data_recovery.h"
 #endif
-
+#if IS_ENABLED(CONFIG_SEC_ABC)
 #if defined(CONFIG_CAMERA_HW_ERROR_DETECT) && defined(CONFIG_CAMERA_ADAPTIVE_MIPI) && defined(CONFIG_CAMERA_RF_MIPI)
 extern char rear_i2c_rfinfo[30];
-static void camera_io_rear_i2c_rfinfo()
+static void camera_io_rear_i2c_rfinfo(void)
 {
 	struct cam_cp_noti_info rf_info;
 
@@ -30,6 +30,7 @@ static void camera_io_rear_i2c_rfinfo()
 		rf_info.rat, rf_info.band, rf_info.channel);
 	sprintf(rear_i2c_rfinfo, "%d,%d,%d\n", rf_info.rat, rf_info.band, rf_info.channel);
 }
+#endif
 #endif
 
 int32_t camera_io_dev_poll(struct camera_io_master *io_master_info,
