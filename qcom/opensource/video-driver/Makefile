@@ -1,10 +1,14 @@
 # SPDX-License-Identifier: GPL-2.0-only
 
-KBUILD_OPTIONS+= VIDEO_ROOT=$(KERNEL_SRC)/$(M)
+KBUILD_OPTIONS += VIDEO_ROOT=$(KERNEL_SRC)/$(M)
+KBUILD_OPTIONS += BOARD_PLATFORM=kalama
+
+KBUILD_OPTIONS += KBUILD_EXTRA_SYMBOLS=$(OUT_DIR)/../sm8550-modules/qcom/opensource/mmrm-driver/Module.symvers
 
 VIDEO_COMPILE_TIME = $(shell date)
 VIDEO_COMPILE_BY = $(shell whoami | sed 's/\\/\\\\/')
 VIDEO_COMPILE_HOST = $(shell uname -n)
+VIDEO_ROOT = $(KERNEL_SRC)/$(M)
 VIDEO_GEN_PATH = $(VIDEO_ROOT)/driver/vidc/inc/video_generated_h
 
 all: modules
