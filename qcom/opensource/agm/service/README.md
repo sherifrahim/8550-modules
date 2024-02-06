@@ -1,2 +1,0 @@
-# agm
-Audio Graph Manager

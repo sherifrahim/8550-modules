@@ -1,1 +1,0 @@
-../linux-ramdump-parser-v2/parsers/ipc_logging.py
